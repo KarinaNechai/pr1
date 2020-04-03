@@ -2,6 +2,7 @@ package com.task8.web.servlet;
 
 import com.task8.model.Check;
 import com.task8.model.Role;
+import com.task8.model.TypeOfCheck;
 import com.task8.model.User;
 import com.task8.service.impl.CheckService;
 import com.task8.service.impl.UserService;
@@ -21,21 +22,18 @@ public class Login extends HttpServlet {
  private UserService userService = (UserService) UserService.getInstance();
  private CheckService checkService = (CheckService) CheckService.getInstance();
     @Override
-    protected void doGet(HttpServletRequest rq, HttpServletResponse rs) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest rq, HttpServletResponse rs)  {
         Object authUser = rq.getSession().getAttribute("authUser");
         if (authUser == null) {
             try {
-              //  rq.getRequestDispatcher("login").forward(rq, rs);
                rs.sendRedirect(rq.getContextPath() + "/registration.jsp");
             }
              catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-              //  rs.sereforword("login", rq, rs);
         }
         try {
             rs.sendRedirect(rq.getContextPath() + "/");
-          //  rs.sendRedirect(rq.getContextPath() +"/student");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -50,9 +48,7 @@ public class Login extends HttpServlet {
             rq.setAttribute("error", "login or password invalid");
            try {
                rq.getRequestDispatcher("login.jsp").forward(rq,rs);
-           } catch (ServletException e) {
-               e.printStackTrace();
-           } catch (IOException e) {
+           } catch (ServletException|IOException e) {
                e.printStackTrace();
            }
        }
@@ -71,6 +67,10 @@ public class Login extends HttpServlet {
             try {
                 List<Check> listCheck = checkService.getChecks(user.getLogin());
                 rq.setAttribute("listCheck", listCheck);
+                float totalRevenue= checkService.totalByTypeOfCheck(listCheck, TypeOfCheck.REVENUE);
+                float totalExpences= checkService.totalByTypeOfCheck(listCheck,TypeOfCheck.EXPENCES);
+                rq.setAttribute("totalRevenue", totalRevenue);
+                rq.setAttribute("totalExpences", totalExpences);
                 rq.getRequestDispatcher("check.jsp").forward(rq,rs);
             } catch (IOException | ServletException e) {
                 throw new RuntimeException(e);

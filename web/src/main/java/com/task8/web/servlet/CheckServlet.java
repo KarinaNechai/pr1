@@ -22,20 +22,8 @@ public class CheckServlet extends HttpServlet {
     private CheckService checkService = (CheckService) CheckService.getInstance();
 
     @Override
-    protected void doGet(HttpServletRequest rq, HttpServletResponse rs) throws ServletException, IOException {
-  /*      Object authUser = rq.getSession().getAttribute("authUser");
-        if (authUser == null) {
-            try {
-                rs.sendRedirect(rq.getContextPath() + "/registration.jsp");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        try {
-            rs.sendRedirect(rq.getContextPath() + "/hello");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }*/
+    protected void doGet(HttpServletRequest rq, HttpServletResponse rs){
+
     }
 
     @Override

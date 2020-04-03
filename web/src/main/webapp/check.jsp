@@ -1,5 +1,6 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
   <head>
     <title>Balance</title>
@@ -46,7 +47,8 @@
 						Дата операции:
 					</td>
 					<td>
-						<input 'fmt:formatDate type="date" value="${now}" pattern="yyyy-MM-dd" required id="date" name="date"'/>
+					    <c:set var = "now" value = "<% = new java.util.Date()%>" />
+						<input 'fmt:formatDate type="date" value="${now}" pattern="dd.MM.yyyy" required id="date" name="date"'/>
 					</td>
 				</tr>
 				<tr>
@@ -77,8 +79,18 @@
 	<c:forEach items="${listCheck}" var="check">
 				<tr>
 					<td> ${check.number}</td>
-					<td> ${check.date}</td>
-					<td> ${check.typeOfCheck}</td>
+                    <td><fmt:formatDate  value="${check.date}" pattern="dd.MM.yyyy"/></td>
+                    <td><c:choose>
+                            <c:when test="${check.typeOfCheck=='REVENUE'}">
+                                Приход
+                                <br />
+                            </c:when>
+                            <c:otherwise>
+                               Расход
+                                <br />
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
 					<td> ${check.sum}</td>
 					<td> ${check.text}</td>
 <td><button type="submit" name="Delete" value=${check.number}>Delete</button></td>
@@ -106,7 +118,6 @@
 </div>
 <footer>
 <form action="${pageContext.request.contextPath}/check" method="post">
-<h1><c:out value="${user.getFirstName()}" default=""/></h1>
 <button type="submit" name="Logout" >Logout</button>
 </form>
 </footer>
