@@ -28,6 +28,8 @@
 }
     </style>
   </head>
+<html>
+<body>
   <div class="content">
 <h3>Regisration</h3>
 <form action="${pageContext.request.contextPath}/registration" method="post">
@@ -63,6 +65,5 @@
 </table>
 </form>
 </div>
-
  </body>
 </html>
