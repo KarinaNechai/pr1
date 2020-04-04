@@ -5,7 +5,7 @@
 <table style="with: 50%">
 	<tr>
 		<td>First Name</td>
-		<td><input type="text" name="firstName" /></td>
+		<td><input type="text" name="firstName" required/></td>
 	</tr>
 	<tr>
 		<td>Last Name</td>
@@ -13,7 +13,7 @@
 	</tr>
 	<tr>
     		<td>e-mail</td>
-    		<td><input type="text" name="email" /></td>
+    		<td><input type="text" name="email" required pattern="\S+@[a-z]+.[a-z]+" /></td>
     	</tr>
     	<tr>
         	<td>telephone</td>
@@ -21,11 +21,11 @@
         </tr>
     	<tr>
 		<td>Login</td>
-		<td><input type="text" name="login" /></td>
+		<td><input type="text" name="login" required /></td>
 	</tr>
 	<tr>
 		<td>Password</td>
-		<td><input type="password" name="password" /></td>
+		<td><input type="password" name="password" required /></td>
 	</tr>
 	<tr>
 		<td><button type="submit" name="Save"> Save</button></td>
