@@ -4,11 +4,11 @@
 <form action="${pageContext.request.contextPath}/registration" method="post">
 <table style="with: 50%">
 	<tr>
-		<td>First Name</td>
+		<td>Фамилия</td>
 		<td><input type="text" name="firstName" required/></td>
 	</tr>
 	<tr>
-		<td>Last Name</td>
+		<td>Имя/td>
 		<td><input type="text" name="lastName" /></td>
 	</tr>
 	<tr>
@@ -16,20 +16,20 @@
     		<td><input type="text" name="email" required pattern="\S+@[a-z]+.[a-z]+" /></td>
     	</tr>
     	<tr>
-        	<td>telephone</td>
+        	<td>Телефон</td>
         	<td><input type="text" name="telephone" /></td>
         </tr>
     	<tr>
-		<td>Login</td>
+		<td>Логин</td>
 		<td><input type="text" name="login" required /></td>
 	</tr>
 	<tr>
-		<td>Password</td>
+		<td>Пароль</td>
 		<td><input type="password" name="password" required /></td>
 	</tr>
 	<tr>
-		<td><button type="submit" name="Save"> Save</button></td>
-		<td><button type="submit" name="Cancel" >Cancel</button></td>
+		<td><button type="submit" name="Save"> Зарегистрироваться</button></td>
+		<td><button type="submit" name="Cancel" >Отмена</button></td>
 	</tr>
 </table>
 

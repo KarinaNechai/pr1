@@ -7,12 +7,12 @@
     </head>
     <body>
 <form action="${pageContext.request.contextPath}/Admin" method="post">
-<table >
+<table border = "1">
    <tr>
-         <td>FirstName</th>
-         <td>LastName</th>
+         <td>Фамилия</th>
+         <td>Имя</th>
          <td>Email</th>
-         <td>Phone</th>
+         <td>Телефон</th>
   </tr>                           
   <c:forEach items="${users}" var="user">
        <tr>
@@ -20,7 +20,6 @@
              <td> ${user.lastName}</td>
              <td> ${user.email}</td>
              <td> ${user.phone}</td>
-<td><button type="submit" value=${user.login} name="Update"> Update</button></td>
 <td><button type="submit" name="Delete" value=${user.login}>Delete</button></td>
 </tr>
 </c:forEach>
