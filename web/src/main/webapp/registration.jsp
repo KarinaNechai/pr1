@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
   <head>
-    <title>Balance</title>
+    <title>Регистрация пользователя</title>
     <style type="text/css">
       .example_main_div div {
         border: 1px solid black;
