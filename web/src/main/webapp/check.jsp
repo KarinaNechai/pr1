@@ -116,13 +116,14 @@
 
 </table>
 </div>
+<div class="footer"
 <footer>
 <form action="${pageContext.request.contextPath}/check" method="post">
 <button type="submit" name="Logout" >Logout</button>
 </form>
 </footer>
-
-    </body>
+</div>
+ </body>
 
 
 </html>
